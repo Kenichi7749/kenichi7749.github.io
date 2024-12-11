@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>8964‘s_Blog_搜索🔍</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Courier New', Courier, monospace;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #1e1e1e;
+            color: #c5c6c7;
+        }
+
+        .search-container {
+            width: 90%;
+            max-width: 600px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: #2d2d2d;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .search-container input[type="text"] {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 10px;
+            border: 1px solid #555;
+            border-radius: 4px;
+            font-size: 16px;
+            background-color: #1e1e1e;
+            color: #c5c6c7;
+            box-sizing: border-box;
+        }
+
+        .search-container input[type="text"]::placeholder {
+            color: #888;
+        }
+
+        .search-container button {
+            width: 100%;
+            padding: 12px;
+            background-color: #007acc;
+            color: #ffffff;
+            font-size: 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        .search-container button:hover {
+            background-color: #005a9e;
+        }
+
+        @media (min-width: 768px) {
+            .search-container {
+                flex-direction: row;
+            }
+
+            .search-container input[type="text"] {
+                flex: 1;
+                margin-right: 10px;
+                margin-bottom: 0;
+            }
+
+            .search-container button {
+                flex: 0;
+                width: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="search-container">
+        <input type="text" id="search-input" placeholder="請輸入要搜索的內容...">
+        <button id="search-button"> 🔍 </button>
+    </div>
+
+    <script>
+        document.getElementById('search-button').addEventListener('click', function() {
+            const query = document.getElementById('search-input').value;
+            const baseUrl = 'https://www.google.com/search?q=site%3Ablog.turbo857.uk+';
+            window.location.href = baseUrl + encodeURIComponent(query);
+        });
+    </script>
+</body>
+</html>

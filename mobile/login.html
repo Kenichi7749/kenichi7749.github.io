@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>全国硕士研究生招生考试部分考生初试成绩查询</title>
+
+    <!-- 图标字体 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Arial, sans-serif;
+            background: #f5f5f5;
+            color: #333;
+            line-height: 1.5;
+            min-width: 320px;
+        }
+        a { color: #1787e0; text-decoration: none; }
+
+        /* 顶部固定栏 */
+        .mobile-header {
+            height: 50px;
+            background: #fff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 15px;
+        }
+        .mobile-logo {
+            font-size: 18px;
+            font-weight: bold;
+            color: #1887e0;
+        }
+        .mobile-logo i {
+            margin-right: 8px;
+            font-size: 24px;
+            color: #1887e0;
+        }
+        .hamburger {
+            font-size: 24px;
+            color: #333;
+            cursor: pointer;
+            padding: 8px;
+        }
+
+        /* 侧边菜单 - 从右边滑出（right: -280px → 0） */
+        .menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 1999;
+            display: none;
+        }
+        .menu-overlay.active { display: block; }
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -280px; /* 初始在右边隐藏 */
+            width: 280px;
+            height: 100%;
+            background: #fff;
+            box-shadow: -2px 0 8px rgba(0,0,0,0.1); /* 阴影在左边 */
+            transition: right 0.3s ease; /* 修改过渡属性为 right */
+            z-index: 2000;
+            overflow-y: auto;
+        }
+        .mobile-menu.active { right: 0; } /* 滑出到右边0位置 */
+        .menu-header {
+            height: 50px;
+            background: #1887e0;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 15px;
+            font-size: 16px;
+        }
+        .menu-close {
+            font-size: 24px;
+            cursor: pointer;
+        }
+        .menu-list a {
+            display: block;
+            padding: 12px 20px;
+            color: #333;
+            font-size: 15px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        .menu-list a:hover {
+            background: #f5f5f5;
+            color: #1887e0;
+        }
+
+        /* 主内容 */
+        .main-content {
+            margin-top: 50px;
+            padding: 20px 15px 80px;
+        }
+
+        /* 标题 */
+        .page-title {
+            font-size: 20px;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        /* 表单卡片 */
+        .form-card {
+            background: #fff;
+            border-radius: 10px;
+            padding: 20px 15px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        /* 浅黄色提示框 */
+        .alert-tip {
+            background: #fffbe6;
+            border: 1px solid #ffe58f;
+            border-radius: 20px;
+            padding: 12px 20px;
+            margin-bottom: 24px;
+            color: #666;
+            font-size: 15px;
+            text-align: center;
+        }
+
+        /* 表单项 - 修正样式：标签在上方，*红色，输入框圆角浅灰边框，placeholder浅灰 */
+        .form-item {
+            margin-bottom: 18px;
+        }
+        .form-item label {
+            display: block;
+            margin-bottom: 6px;
+            color: #333; /* 标签文字黑色 */
+            font-size: 15px;
+        }
+        .form-item label::before {
+            content: "* ";
+            color: #ed4014; /* 只*是红色，标签文字黑 */
+        }
+        .form-item input[type="text"],
+        .form-item select {
+            width: 100%;
+            height: 44px;
+            padding: 0 15px;
+            border: 1px solid #d9d9d9;
+            border-radius: 8px;
+            font-size: 16px;
+            background: #fff;
+        }
+        .form-item input::placeholder,
+        .form-item select option[disabled] {
+            color: #bfbfbf; /* placeholder浅灰 */
+        }
+        .form-item input:focus,
+        .form-item select:focus {
+            border-color: #1887e0;
+            outline: none;
+        }
+
+        /* 忘记准考证号链接 */
+        .forget-link {
+            display: block;
+            text-align: right;
+            margin-top: 8px;
+            font-size: 14px;
+            color: #1787e0;
+        }
+
+        /* 查询按钮 */
+        .btn-primary {
+            width: 100%;
+            height: 48px;
+            background: #1887e0;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-size: 17px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .btn-primary:active {
+            background: #166ec7;
+        }
+
+        /* 底部固定导航栏 */
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 56px;
+            background: #333;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            color: #ababab;
+            font-size: 12px;
+            z-index: 1000;
+        }
+        .bottom-nav a {
+            color: #ababab;
+            text-align: center;
+            flex: 1;
+        }
+        .bottom-nav i {
+            display: block;
+            font-size: 20px;
+            margin-bottom: 4px;
+        }
+    </style>
+</head>
+<body>
+
+<!-- 顶部固定栏 -->
+<div class="mobile-header">
+    <div class="mobile-logo">
+        <i class="fas fa-graduation-cap"></i>研招网
+    </div>
+    <div class="hamburger" id="hamburger"><i class="fas fa-bars"></i></div>
+</div>
+
+<!-- 菜单遮罩和侧边菜单（从右滑出） -->
+<div class="menu-overlay" id="menuOverlay"></div>
+<div class="mobile-menu" id="mobileMenu">
+    <div class="menu-header">
+        <span>导航菜单</span>
+        <div class="menu-close" id="menuClose"><i class="fas fa-times"></i></div>
+    </div>
+    <div class="menu-list">
+        <a href="/">首页</a>
+        <a href="/kyzx/zcdh/">国家政策</a>
+        <a href="/kyzx/kydt/">资讯</a>
+        <a href="/sch/">院校库</a>
+        <a href="/zsml/">硕士目录</a>
+        <a href="/sswbgg/">网报公告</a>
+        <a href="/yzwb/">统考网报</a>
+        <a href="/wsqr/stu/">网上确认</a>
+        <a href="/apply/cjcx/">成绩查询</a>
+        <a href="/yztj/">复试调剂</a>
+        <a href="/tm/">推免服务</a>
+        <a href="/zsgs/">信息公开</a>
+        <a href="/user/">用户中心</a>
+        <a href="https://account.chsi.com.cn/account/preregister.action?from=yz-home">注册</a>
+    </div>
+</div>
+
+<!-- 主内容 -->
+<div class="main-content">
+    <h1 class="page-title">2026年部分考生初试成绩查询</h1>
+
+    <div class="form-card">
+        <div class="alert-tip">
+            姓名、证件号码、准考证号必填。
+        </div>
+
+        <form id="scoreQueryForm">
+            <div class="form-item">
+                <label>姓名</label>
+                <input type="text" name="xm" placeholder="请输入" maxlength="40" required>
+            </div>
+
+            <div class="form-item">
+                <label>证件号码</label>
+                <input type="text" name="zjhm" placeholder="请输入" maxlength="20" required>
+            </div>
+
+            <div class="form-item">
+                <label>准考证号</label>
+                <input type="text" id="ksbh" name="ksbh" placeholder="请输入" maxlength="15" required>
+                <a href="/apply/cjcxa/" class="forget-link">忘记准考证号 <i class="fas fa-arrow-right"></i></a>
+            </div>
+
+            <div class="form-item">
+                <label>报考单位</label>
+                <select name="bkdwdm" required>
+                    <option value="" disabled selected>请选择报考单位</option>
+                    <option value="1">(1) 一号大学</option>
+                    <option value="2">(2) 二号大学</option>
+                    <option value="3">(3) 三号大学</option>
+                </select>
+            </div>
+
+            <button type="button" class="btn-primary" onclick="handleQuery()">查询</button>
+        </form>
+    </div>
+</div>
+
+<!-- 底部固定导航栏 -->
+<div class="bottom-nav">
+    <a href="//www.chsi.com.cn/">
+        <i class="fas fa-home"></i>
+        学信网
+    </a>
+    <a href="/help/">
+        <i class="fas fa-question-circle"></i>
+        帮助中心
+    </a>
+    <a href="/doc/about.jsp">
+        <i class="fas fa-info-circle"></i>
+        关于我们
+    </a>
+</div>
+
+<!-- 菜单脚本 -->
+<script>
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const menuClose = document.getElementById('menuClose');
+    const menuOverlay = document.getElementById('menuOverlay');
+
+    function openMenu() {
+        mobileMenu.classList.add('active');
+        menuOverlay.classList.add('active');
+    }
+
+    function closeMenu() {
+        mobileMenu.classList.remove('active');
+        menuOverlay.classList.remove('active');
+    }
+
+    hamburger.addEventListener('click', openMenu);
+    menuClose.addEventListener('click', closeMenu);
+    menuOverlay.addEventListener('click', closeMenu);
+</script>
+
+<!-- 查询按钮逻辑脚本 -->
+<script>
+    function handleQuery() {
+        const ksbhInput = document.getElementById('ksbh');
+        const ksbh = ksbhInput.value.trim();
+
+        if (!ksbh) {
+            alert('请输入准考证号');
+            ksbhInput.focus();
+            return;
+        }
+
+        if (ksbh === '123') {
+            window.location.href = '123.html';  // 移动端直接跳转到 123.html
+        } else {
+            alert('未找到对应成绩信息，或准考证号错误（仅当准考证号为123时可查询）');
+        }
+    }
+</script>
+
+</body>
+</html>

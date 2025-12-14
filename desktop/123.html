@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>全国硕士研究生招生考试部分考生初试成绩查询</title>
+
+    <!-- 图标字体 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* 重置和基础样式 */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Arial, sans-serif;
+            background: #fff;
+            color: #333;
+            line-height: 1.5;
+        }
+        a { color: #1787e0; text-decoration: none; }
+        a:hover { color: #1787e0; text-decoration: underline; }
+        .container {
+            width: 1200px;
+            max-width: 98%;
+            margin: 0 auto;
+        }
+
+        /* 顶部导航（研招网风格） */
+        .top-nav-wrapper {
+            background: #fff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .top-nav {
+            width: 1200px;
+            max-width: 98%;
+            margin: 0 auto;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 14px;
+        }
+        .top-nav-list {
+            display: flex;
+            align-items: center;
+        }
+        .top-nav-list a {
+            margin-right: 20px;
+            color: #2b2e33;
+        }
+        .top-nav-list a:hover {
+            color: #1887e0;
+            font-weight: bold;
+        }
+        .top-nav-home {
+            display: inline-block;
+            width: 98px;
+            height: 36px;
+            background: url('https://t2.chei.com.cn/yz/assets/images/logo-min.png') center left no-repeat;
+            background-size: contain;
+        }
+        .top-nav-load a {
+            margin-left: 12px;
+            color: #2b2e33;
+        }
+        .top-nav-load a:hover { color: #1887e0; }
+
+        /* 头部横幅 */
+        .yz-header-banner-wrapper {
+            background: linear-gradient(135deg, #0066cc, #0099ff);
+            margin-bottom: 40px;
+            box-shadow: 0 4px 15px rgba(0,102,204,0.2);
+        }
+        .banner {
+            height: 160px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+            background: url('https://t2.chei.com.cn/yz/assets/images/header-banner-2x.jpg') center top no-repeat;
+            background-size: cover;
+        }
+        .banner h1 {
+            font-size: 36px;
+            font-weight: 700;
+            line-height: 44px;
+        }
+        .banner .ch-sub-title {
+            font-size: 15px;
+            margin-top: 6px;
+            opacity: 0.8;
+        }
+
+        /* 主内容区 */
+        .main-content {
+            display: flex;
+            max-width: 1200px;
+            margin: 0 auto 60px;
+            gap: 80px;
+            align-items: flex-start;
+            padding: 0 20px;
+        }
+        .score-info {
+            flex: 1;
+            font-size: 15.5px;  /* 更接近官方的字体大小 */
+            line-height: 2.4;   /* 行距更大，更松散舒适 */
+            color: #555;
+        }
+        .score-info .row {
+            display: flex;
+            margin-bottom: 8px;
+        }
+        .score-info .label {
+            display: inline-block;
+            width: 110px;
+            color: #888;        /* 标签更浅灰 */
+            flex-shrink: 0;
+        }
+        .score-info .value {
+            color: #333;
+        }
+
+        /* 总分行（与截图一致：稍大、蓝色、无边框、无加粗） */
+        .total-row {
+            font-size: 18px;
+            color: #0066cc;
+            margin: 25px 0 20px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+
+        /* 右侧说明框 */
+        .side-notice {
+            width: 320px;
+            background: #f8fbff;
+            border: 1px solid #e0e8f5;
+            border-radius: 8px;
+            padding: 24px;
+            font-size: 14.5px;
+            line-height: 1.8;
+            color: #555;
+            align-self: flex-start;
+        }
+        .side-notice h3 {
+            color: #0066cc;
+            margin-bottom: 16px;
+            font-size: 15px;
+            font-weight: normal;
+        }
+        .side-notice a {
+            color: #0066cc;
+        }
+
+        /* 返回按钮 */
+        .back-btn {
+            display: block;
+            width: 100px;
+            margin: 20px auto 60px;
+            background: #0066cc;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            font-size: 15px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .back-btn:hover {
+            background: #0055aa;
+        }
+
+        /* 底部（完全照搬） */
+        .footer-wrapper {
+            background: #282828;
+            color: #ababab;
+            padding: 30px 0;
+            margin-top: 40px;
+            font-size: 13px;
+            line-height: 28px;
+        }
+        .footer {
+            width: 1200px;
+            max-width: 98%;
+            margin: 0 auto;
+            position: relative;
+            height: 160px;
+        }
+        .footer a { color: #ababab; }
+        .footer a:hover { color: #ababab; text-decoration: underline; }
+        .footer-list {
+            position: absolute;
+            top: 20px;
+            left: 0;
+        }
+        .footer-list a {
+            margin-right: 15px;
+        }
+        .footer-units {
+            position: absolute;
+            top: 60px;
+            left: 0;
+        }
+        .footer-media {
+            position: absolute;
+            top: 20px;
+            right: 0;
+            text-align: right;
+        }
+        .footer-media a {
+            display: inline-block;
+            margin-left: 30px;
+        }
+        .footer-media i {
+            font-size: 20px;
+            margin-right: 5px;
+            vertical-align: middle;
+        }
+        .footer-msg {
+            position: absolute;
+            top: 60px;
+            right: 0;
+            text-align: right;
+        }
+        .footer-beian {
+            position: absolute;
+            bottom: 10px;
+            left: 0;
+            display: flex;
+            align-items: center;
+            font-size: 12px;
+        }
+        .footer-beian img {
+            width: 16px;
+            height: auto;
+            margin: 0 8px;
+            vertical-align: middle;
+        }
+
+        /* 响应式 */
+        @media (max-width: 992px) {
+            .main-content {
+                flex-direction: column;
+                gap: 40px;
+            }
+            .side-notice {
+                width: 100%;
+            }
+            .banner h1 { font-size: 30px; }
+        }
+        @media (max-width: 768px) {
+            .top-nav { flex-direction: column; height: auto; padding: 10px 0; }
+            .top-nav-list { flex-wrap: wrap; justify-content: center; margin-bottom: 10px; }
+            .top-nav-list a { margin: 5px 10px; }
+            .banner { height: 140px; }
+            .score-info { font-size: 15px; line-height: 2.2; }
+            .score-info .label { width: 100px; }
+            .back-btn { width: 100%; max-width: 300px; }
+
+            .footer { height: auto; position: static; padding: 20px 0; }
+            .footer-list, .footer-units, .footer-media, .footer-msg, .footer-beian {
+                position: static;
+                text-align: center;
+                margin-bottom: 15px;
+            }
+            .footer-media a { margin: 0 15px; }
+            .footer-beian { justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- 顶部导航 -->
+<div class="top-nav-wrapper">
+    <div class="top-nav">
+        <div class="top-nav-list">
+            <a href="/" class="top-nav-home"></a>
+            <a href="/">首页</a>
+            <a href="/kyzx/zcdh/">国家政策</a>
+            <a href="/kyzx/kydt/">资讯</a>
+            <a href="/sch/">院校库</a>
+            <a href="/zsml/">硕士目录</a>
+            <a href="/sswbgg/">网报公告</a>
+            <a href="/yzwb/">统考网报</a>
+            <a href="/wsqr/stu/">网上确认</a>
+            <a href="/apply/cjcx/">成绩查询</a>
+            <a href="/yztj/">复试调剂</a>
+            <a href="/tm/">推免服务</a>
+            <a href="/zsgs/">信息公开</a>
+        </div>
+        <div class="top-nav-load">
+            <a href="/user/">用户中心</a>
+            <span style="margin: 0 12px; color: #e8eaed;">|</span>
+            <a href="https://account.chsi.com.cn/account/preregister.action?from=yz-home">注册</a>
+        </div>
+    </div>
+</div>
+
+<!-- 头部横幅 -->
+<div class="yz-header-banner-wrapper">
+    <div class="banner">
+        <h1>2025年部分考生初试成绩查询</h1>
+        <div class="ch-sub-title">本系统所有数据均为招生单位提供，招生单位对查询结果负责解释。</div>
+    </div>
+</div>
+
+<!-- 主内容 -->
+<div class="main-content">
+    <!-- 成绩信息 -->
+    <div class="score-info">
+        <div class="row"><span class="label">姓名</span><span class="value">大只佬</span></div>
+        <div class="row"><span class="label">报名号</span><span class="value">123</span></div>
+        <div class="row"><span class="label">准考证号</span><span class="value">123</span></div>
+
+        <div class="row total-row"><span class="label">总分</span><span class="value">358</span></div>
+
+        <div class="row"><span class="label">第一门</span><span class="value">(101) 思想政治理论：72</span></div>
+        <div class="row"><span class="label">第二门</span><span class="value">(202) 俄语：66</span></div>
+        <div class="row"><span class="label">第三门</span><span class="value">(311) 教育学专业基础：220</span></div>
+        <div class="row"><span class="label">第四门</span><span class="value">无</span></div>
+        <div class="row"><span class="label">备注</span><span class="value">无</span></div>
+    </div>
+
+    <!-- 右侧说明框 -->
+    <div class="side-notice">
+        <h3>招生单位说明</h3>
+        <p>更多招生信息请关注学校研究生招生网<br>
+            <a href="http://yzb.zuel.edu.cn" target="_blank"></a>相关公告。</p>
+    </div>
+</div>
+
+<!-- 返回按钮 -->
+<div class="back-btn" onclick="history.back()">返回</div>
+
+<!-- 底部（完全照搬） -->
+<div class="footer-wrapper">
+    <div class="footer">
+        <div class="footer-list">
+            <a href="//www.chsi.com.cn/" target="_blank">学信网</a>
+            <a href="https://chesicc.chsi.com.cn/zxgw/zxjs/201604/20160418/1529506207.html" target="_blank">中心简介</a>
+            <a href="/doc/about.jsp" target="_blank">关于我们</a>
+            <a href="/doc/copyright.jsp" target="_blank">版权声明</a>
+            <a href="/help/" target="_blank">帮助中心</a>
+            <a href="/sitemap.jsp" target="_blank">网站地图</a>
+            <a href="https://www.chsi.com.cn/ad/202403/20240322/2293272455.html" target="_blank">网站宣传</a>
+        </div>
+
+        <div class="footer-units">
+            主办单位：<a href="https://chesicc.chsi.com.cn/" target="_blank">教育部学生服务与素质发展中心</a><br>
+            Copyright © 2003-2025 <a href="//www.chsi.com.cn/" target="_blank">学信网</a> All Rights Reserved
+        </div>
+
+        <div class="footer-media">
+            <a href="/kyzx/kp/wbwx.shtml" target="_blank">
+                <i class="fab fa-weixin" style="color:#ababab;"></i>官方微信
+            </a>
+            <a href="/kyzx/kp/wbwx.shtml" target="_blank">
+                <i class="fab fa-weibo" style="color:#ababab;"></i>官方微博
+            </a>
+        </div>
+
+        <div class="footer-msg">
+            客服热线：010-67410388<br>
+            客服邮箱：kefu@chsi.com.cn
+        </div>
+
+        <div class="footer-beian">
+            <a href="https://beian.miit.gov.cn" target="_blank">京ICP备19004913号-1</a>
+            <img src="https://t1.chei.com.cn/chsi/images/jgwab.svg" alt="公安备案图标">
+            <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010202009747" target="_blank">京公网安备11010202009747号</a>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

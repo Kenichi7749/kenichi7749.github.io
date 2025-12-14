@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>全国硕士研究生招生考试部分考生初试成绩查询</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Helvetica Neue", Arial, sans-serif;
+      background-color: #f5f5f5;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    /* 蓝色标题栏 */
+    .header {
+      width: 100%;
+      background: #0066cc;
+      color: #fff;
+      text-align: center;
+      font-size: 18px;
+      font-weight: bold;
+      padding: 14px 0;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    /* 浅黄色说明区（紧贴标题栏） */
+    .notice {
+      width: 100%;
+      background: #fffbe6;
+      padding: 12px 15px;
+      font-size: 14px;
+      line-height: 1.6;
+      color: #333;
+      border-bottom: 1px solid #eee;
+    }
+    /* 主信息卡片 */
+    .card {
+      width: 94%;
+      max-width: 420px;
+      background: #fff;
+      margin-top: 12px;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+    /* 每行信息 */
+    .row {
+      display: flex;
+      align-items: center;
+      padding: 14px 16px;
+      font-size: 15px;
+      border-bottom: 1px solid #f0f0f0; /* 虚割线 */
+    }
+    .row:last-child { border-bottom: none; }
+    .label {
+      width: 80px;
+      color: #333;
+      font-weight: 500;
+    }
+    .value {
+      flex: 1;
+      color: #555;        /* 改成灰色，更舒服 */
+      /* 如果想要更深一点的灰可以用 #555 */
+    }
+    .circle {
+      width: 56px;
+      height: 56px;
+      background: linear-gradient(135deg, #bbbbbb, #888888);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 28px;
+      font-weight: bold;
+      margin-left: 10px;
+    }
+    /* 浅灰色底部说明 */
+    .footer {
+      width: 94%;
+      max-width: 420px;
+      background: #f8f8f8;
+      margin: 15px auto;
+      padding: 14px 16px;
+      border-radius: 8px;
+      font-size: 13px;
+      line-height: 1.7;
+      color: #666;
+    }
+    /* 蓝色返回按钮 */
+    .back-btn {
+      width: 94%;
+      max-width: 420px;
+      background: #0066cc;
+      color: #fff;
+      text-align: center;
+      padding: 14px;
+      font-size: 17px;
+      border-radius: 8px;
+      margin: 20px auto 30px;
+      cursor: pointer;
+      user-select: none;
+    }
+  </style>
+</head>
+<body>
+<div class="header">2025年部分考生初试成绩查询</div>
+
+<div class="notice">
+  招生单位说明：我校考试成绩已经过严格评阅，多次核对，如考生仍对评卷结果有异议，可于规定时间内申请成绩复核。具体流程请查看我校研究生招生信息网通知。
+</div>
+
+<div class="card">
+  <div class="row">
+    <div class="label">姓名</div>
+    <div class="value">牛国豪</div>
+  </div>
+  <div class="row">
+    <div class="label">报名号</div>
+    <div class="value">371741589</div>
+  </div>
+  <div class="row">
+    <div class="label">准考证号</div>
+    <div class="value">100275371741589</div>
+  </div>
+  <div class="row">
+    <div class="label">总分</div>
+    <div class="value">358</div>
+  </div>
+  <div class="row">
+    <div class="label">第一门</div>
+    <div class="value">(101)思想政治理论：72</div>
+  </div>
+  <div class="row">
+    <div class="label">第二门</div>
+    <div class="value">(202)俄语：66</div>
+  </div>
+  <div class="row">
+    <div class="label">第三门</div>
+    <div class="value">(311)教育学专业基础：220</div>
+  </div>
+  <div class="row">
+    <div class="label">第四门</div>
+    <div class="value">无</div>
+  </div>
+  <div class="row">
+    <div class="label">备注</div>
+    <div class="value">无</div>
+  </div>
+</div>
+
+<div class="footer">
+  <p>本系统所有数据均为招生单位提供，招生单位对查询结果负责解释。</p>
+  <p>查询到的成绩为负值，表示有缺考、违纪等情况。若仍对查询结果有疑问，请咨询相应的招生单位。</p>
+</div>
+
+<div class="back-btn" onclick="history.back()">返回</div>
+</body>
+</html>

@@ -1,3 +1,0 @@
-User-agent: *
-Disallow:
-Sitemap: https://blog.turbo857.uk/sitemap.xml

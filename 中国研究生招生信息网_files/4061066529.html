@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0014)about:internet -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>学信网</title>
+<script type="text/javascript">
+function json2str(o) {
+var arr = [];
+var fmt = function(s) {
+if (typeof s == 'object' && s != null) return json2str(s);
+return /^(string|number)$/.test(typeof s) ? "\"" + s + "\"" : s;
+}
+for (var i in o) arr.push("\"" + i + "\":" + fmt(o[i]));
+return '{' + arr.join(',') + '}';
+}
+  var advAreaId = "4061066529";
+  // document.domain="chsi.com.cn";
+  function goo(curr,adv_id){
+	  curr.href = "http://axvert.chsi.com.cn/goo.action?aid=" + adv_id + "&evtype=adv_https:_yz.chsi.com.cn";
+	  return true;
+  }
+  function closeAxvert(){
+      var html_id = '4061066529';
+      var o_c = json2str({'html_id':html_id,'close':true});
+      var supportPostMessage = 'postMessage' in window;
+      if ( supportPostMessage ){     window.top.postMessage( o_c, '*'); }
+      else {
+         var targetFunc = window.navigator['axvert_top'];
+            if ( typeof targetFunc == 'function' ) {
+                targetFunc(o_c, window);
+            } else {
+                throw new Error("target callback function is not defined");
+            }
+      }
+  }
+  function b_load(){
+		var _w = document.body.scrollWidth;
+		var _h = document.body.offsetHeight;
+		var html_id = '4061066529';
+        // msg调整后顺序为：html_id,(close),width,height
+		var o_b = json2str({'html_id':html_id,'_w':_w,'_h':_h});
+
+		var supportPostMessage = 'postMessage' in window;
+		if ( supportPostMessage ){     window.top.postMessage( o_b, '*'); }
+		else {
+		 var targetFunc = window.navigator['axvert_top'];
+            if ( typeof targetFunc == 'function' ) {
+                targetFunc(o_b, window);
+            } else {
+                throw new Error("target callback function is not defined");
+            }
+          }
+
+  }
+  function c_load(){
+      setTimeout(b_load,200);
+  }
+</script>
+<style type="text/css">
+html,body{ margin:0px; padding:0px; border-width:0px;}
+body{ float:left;}
+ul,li{ list-style:none; margin:0; padding:0;}
+img{ border: 0; border-radius: 4px; transition: transform .5s; }
+a:hover img { transform: scale(1.1);}
+.slide_picwrap a:hover img { transform:none;}
+
+</style>
+<link rel="stylesheet" href="./iconfont.css">
+<script src="./ce.js"></script>
+</head>
+<body onload="c_load()" escapejavascript="true" marginwidth="0" marginheight="0">
+<style type="text/css">#aa687792826{ width:1180px; height:128px; overflow:hidden;}#aa687792826 img{  border-radius: 4px;}.adv-inner-box{ width:286px; height:128px; float:left; *display:inline; margin-right:12px;overflow:hidden; }</style><div id="aa687792826"><div style="width:1192px; height:128px;"><div id="as4061207320" class="adv-inner-box"><div><a href="https://yz.chsi.com.cn/yzzt/kybk" target="_blank" onmousedown="goo(this, &#39;4057132701&#39;)" onblur="this.href=&#39;https://yz.chsi.com.cn/yzzt/kybk&#39;"><img src="./6809189627.jpg" width="286" height="128"></a></div></div><div id="as4061207321" class="adv-inner-box"><div><a href="https://yz.chsi.com.cn/zsml/" target="_blank" onmousedown="goo(this, &#39;6203533881&#39;)" onblur="this.href=&#39;https://yz.chsi.com.cn/zsml/&#39;"><img src="./7045152330.jpg" width="286" height="128"></a></div></div><div id="as4061207322" class="adv-inner-box"><div><a href="https://yz.chsi.com.cn/kyzx/zt/zsxz.shtml" target="_blank" onmousedown="goo(this, &#39;4057152741&#39;)" onblur="this.href=&#39;https://yz.chsi.com.cn/kyzx/zt/zsxz.shtml&#39;"><img src="./5404690368.jpg" width="286" height="128"></a></div></div><div id="as687792827" class="adv-inner-box"><div><a href="https://yz.chsi.com.cn/zyk/" target="_blank" onmousedown="goo(this, &#39;5494056565&#39;)" onblur="this.href=&#39;https://yz.chsi.com.cn/zyk/&#39;"><img src="./5494056333.jpg" width="286" height="128" border="0"></a></div></div> </div></div><script type="text/javascript"> new multiAdShow({container:"as4061207320", adwrap:"div", timer:3000 }); new multiAdShow({container:"as4061207321", adwrap:"div", timer:3000 }); new multiAdShow({container:"as4061207322", adwrap:"div", timer:3000 }); new multiAdShow({container:"as687792827", adwrap:"div", timer:3000 });</script>
+
+
+</body></html>

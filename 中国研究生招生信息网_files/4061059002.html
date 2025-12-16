@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0014)about:internet -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>学信网</title>
+<script type="text/javascript">
+function json2str(o) {
+var arr = [];
+var fmt = function(s) {
+if (typeof s == 'object' && s != null) return json2str(s);
+return /^(string|number)$/.test(typeof s) ? "\"" + s + "\"" : s;
+}
+for (var i in o) arr.push("\"" + i + "\":" + fmt(o[i]));
+return '{' + arr.join(',') + '}';
+}
+  var advAreaId = "4061059002";
+  // document.domain="chsi.com.cn";
+  function goo(curr,adv_id){
+	  curr.href = "http://axvert.chsi.com.cn/goo.action?aid=" + adv_id + "&evtype=adv_https:_yz.chsi.com.cn";
+	  return true;
+  }
+  function closeAxvert(){
+      var html_id = '4061059002';
+      var o_c = json2str({'html_id':html_id,'close':true});
+      var supportPostMessage = 'postMessage' in window;
+      if ( supportPostMessage ){     window.top.postMessage( o_c, '*'); }
+      else {
+         var targetFunc = window.navigator['axvert_top'];
+            if ( typeof targetFunc == 'function' ) {
+                targetFunc(o_c, window);
+            } else {
+                throw new Error("target callback function is not defined");
+            }
+      }
+  }
+  function b_load(){
+		var _w = document.body.scrollWidth;
+		var _h = document.body.offsetHeight;
+		var html_id = '4061059002';
+        // msg调整后顺序为：html_id,(close),width,height
+		var o_b = json2str({'html_id':html_id,'_w':_w,'_h':_h});
+
+		var supportPostMessage = 'postMessage' in window;
+		if ( supportPostMessage ){     window.top.postMessage( o_b, '*'); }
+		else {
+		 var targetFunc = window.navigator['axvert_top'];
+            if ( typeof targetFunc == 'function' ) {
+                targetFunc(o_b, window);
+            } else {
+                throw new Error("target callback function is not defined");
+            }
+          }
+
+  }
+  function c_load(){
+      setTimeout(b_load,200);
+  }
+</script>
+<style type="text/css">
+html,body{ margin:0px; padding:0px; border-width:0px;}
+body{ float:left;}
+ul,li{ list-style:none; margin:0; padding:0;}
+img{ border: 0; border-radius: 4px; transition: transform .5s; }
+a:hover img { transform: scale(1.1);}
+.slide_picwrap a:hover img { transform:none;}
+
+</style>
+<link rel="stylesheet" href="./iconfont.css">
+<script src="./ce.js"></script>
+</head>
+<body onload="c_load()" escapejavascript="true" marginwidth="0" marginheight="0">
+<style type="text/css">#aa535318798{ width:582px;  overflow:hidden;}#aa535318798 img{ width:286px; height:58px; border:0; margin:0 0 10px 0; border-radius: 4px;}#as4059810050,#as4059810051, #as535318799,#as535322702{ width:286px; height:58px;text-align:center; float: left; margin-bottom: 10px; margin-right: 10px; overflow:hidden;  } .clearFloat {height: 0;line-height: 0;font-size: 0;clear: both;overflow: hidden;}</style><div id="aa535318798">  <div style="width:592px;">                <div id="as4059810050"><div><a href="https://phd.scfai.edu.cn/" target="_blank" onmousedown="goo(this, &#39;6711525924&#39;)" onblur="this.href=&#39;https://phd.scfai.edu.cn/&#39;"><img src="./6711523672.jpg" width="286" height="58"></a></div></div>                <div id="as4059810051"><div><a href="https://www.mpu.edu.mo/admission_mainland/zh/pg_admissionroutes.php" target="_blank" onmousedown="goo(this, &#39;7116530036&#39;)" onblur="this.href=&#39;https://www.mpu.edu.mo/admission_mainland/zh/pg_admissionroutes.php&#39;"><img src="./7116527409.jpg" width="286" height="58"></a></div></div>                <div id="as535318799"><div><a href="https://yz.chsi.com.cn/zsml/" target="_blank" onmousedown="goo(this, &#39;6054964251&#39;)" onblur="this.href=&#39;https://yz.chsi.com.cn/zsml/&#39;"><img src="./7045152836.jpg" width="286" height="58"></a></div></div>                <div id="as535322702"><div><a href="https://www.utm.edu.mo/admission/sc/postgraduate_programmes/study-plan-and-course-description/index.html" target="_blank" onmousedown="goo(this, &#39;7116532434&#39;)" onblur="this.href=&#39;https://www.utm.edu.mo/admission/sc/postgraduate_programmes/study-plan-and-course-description/index.html&#39;"><img src="./7116531805.jpg" width="286" height="58"></a></div></div><div class="clearFloat"></div></div></div><script type="text/javascript">var testAd01 = new multiAdShow({container:"as4059810050", adwrap:"div", timer:3000 });var testAd02 = new multiAdShow({container:"as4059810051", adwrap:"div", timer:3000 });var testAd03 = new multiAdShow({container:"as535318799", adwrap:"div", timer:3000 });var testAd04 = new multiAdShow({container:"as535322702", adwrap:"div", timer:3000 });</script>
+
+
+</body></html>

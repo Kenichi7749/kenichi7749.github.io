@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0014)about:internet -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>学信网</title>
+<script type="text/javascript">
+function json2str(o) {
+var arr = [];
+var fmt = function(s) {
+if (typeof s == 'object' && s != null) return json2str(s);
+return /^(string|number)$/.test(typeof s) ? "\"" + s + "\"" : s;
+}
+for (var i in o) arr.push("\"" + i + "\":" + fmt(o[i]));
+return '{' + arr.join(',') + '}';
+}
+  var advAreaId = "1867480245";
+  // document.domain="chsi.com.cn";
+  function goo(curr,adv_id){
+	  curr.href = "http://axvert.chsi.com.cn/goo.action?aid=" + adv_id + "&evtype=adv_https:_yz.chsi.com.cn";
+	  return true;
+  }
+  function closeAxvert(){
+      var html_id = '1867480245';
+      var o_c = json2str({'html_id':html_id,'close':true});
+      var supportPostMessage = 'postMessage' in window;
+      if ( supportPostMessage ){     window.top.postMessage( o_c, '*'); }
+      else {
+         var targetFunc = window.navigator['axvert_top'];
+            if ( typeof targetFunc == 'function' ) {
+                targetFunc(o_c, window);
+            } else {
+                throw new Error("target callback function is not defined");
+            }
+      }
+  }
+  function b_load(){
+		var _w = document.body.scrollWidth;
+		var _h = document.body.offsetHeight;
+		var html_id = '1867480245';
+        // msg调整后顺序为：html_id,(close),width,height
+		var o_b = json2str({'html_id':html_id,'_w':_w,'_h':_h});
+
+		var supportPostMessage = 'postMessage' in window;
+		if ( supportPostMessage ){     window.top.postMessage( o_b, '*'); }
+		else {
+		 var targetFunc = window.navigator['axvert_top'];
+            if ( typeof targetFunc == 'function' ) {
+                targetFunc(o_b, window);
+            } else {
+                throw new Error("target callback function is not defined");
+            }
+          }
+
+  }
+  function c_load(){
+      setTimeout(b_load,200);
+  }
+</script>
+<style type="text/css">
+html,body{ margin:0px; padding:0px; border-width:0px;}
+body{ float:left;}
+ul,li{ list-style:none; margin:0; padding:0;}
+img{ border: 0; border-radius: 4px; transition: transform .5s; }
+a:hover img { transform: scale(1.1);}
+.slide_picwrap a:hover img { transform:none;}
+
+</style>
+<link rel="stylesheet" href="./iconfont.css">
+<script src="./ce.js"></script>
+</head>
+<body onload="c_load()" escapejavascript="true" marginwidth="0" marginheight="0">
+<div id="aa399284826"><ul id="as399284827" class="list-content"><li class="clearfix"><a href="https://yz.jou.edu.cn/" target="_blank" onmousedown="goo(this, &#39;7233167929&#39;)" onblur="this.href=&#39;https://yz.jou.edu.cn/&#39;">江苏海洋大学2026年研招（含非全MPA...</a></li></ul></div><style type="text/css">body{color:#333333; font-family: "Helvetica Neue",Helvetica,"PingFang SC","Microsoft YaHei","Hiragino Sans GB","WenQuanYi Micro Hei",Arial,sans-serif; -webkit-font-smoothing: antialiased;}.clearfix:after{content:'\0020'; display:block; clear:both; height:0;}.clearfix{zoom:1;}a,a:link,a:visited { text-decoration: none;} a:hover { text-decoration: underline;}#aa399284826{ width:365px;}.list-content li a { color: #13161B;}.list-content li{    max-width: 365px;    width: 365px;    height: 34px;     line-height: 34px;    font-size: 16px;    overflow: hidden;    text-overflow: ellipsis;    white-space: nowrap;    font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB",  "WenQuanYi Micro Hei", Arial, sans-serif;}</style>
+
+
+</body></html>
